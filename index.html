@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day! 💕</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+    
+    <!-- SCREEN 1: GREETING UI -->
+    <div id="screen1" class="screen active">
+        <div class="container">
+            <!-- REPLACE THIS IMAGE: Square holder with your photo -->
+            <div class="image-holder square">
+                <img src="images/blackCatHBD1.gif" alt="Valentine Image" id="greetingImage">
+            </div>
+            
+            <h1 class="valentine-title">HAPPY VALENTINE'S DAY, MY DEARESTT!!</h1>
+            
+            <button class="btn-primary" id="startBtn">Start</button>
+        </div>
+    </div>
+
+    <!-- SCREEN 2: DRAG AND DROP GAME WITH LINE CONNECTIONS -->
+    <div id="screen2" class="screen">
+        <div class="container">
+            <h2 class="game-title">Match the Items, My Dear! 💝</h2>
+            <p class="game-subtitle">Drag each item to its correct name</p>
+            
+            <div class="game-area">
+                <!-- SVG for drawing connection lines -->
+                <svg id="connectionLines" class="connection-svg"></svg>
+                
+                <!-- LEFT COLUMN: Draggable Images  -->
+                <div class="drag-column" id="dragColumn">
+                    <!-- Order 1: CAT -->
+                    <div class="drag-item" draggable="true" data-match="cat" id="item-cat">
+                        <img src="images/blackCatHBD2.gif" alt="Cat">
+                    </div>
+                    <!-- Order 2: FRIES -->
+                    <div class="drag-item" draggable="true" data-match="fries" id="item-fries">
+                        <img src="images/friesGIF.gif" alt="Fries">
+                    </div>
+                    <!-- Order 3: DONUT -->
+                    <div class="drag-item" draggable="true" data-match="donut" id="item-donut">
+                        <img src="images/donutGIF.gif" alt="Donut">
+                    </div>
+                    <!-- Order 4: FLOWER -->
+                    <div class="drag-item" draggable="true" data-match="flower" id="item-flower">
+                        <img src="images/flowerGIF.gif" alt="Flower">
+                    </div>
+                    <!-- Order 5: ICE CREAM -->
+                    <div class="drag-item" draggable="true" data-match="icecream" id="item-icecream">
+                        <img src="images/icecreamGIF.gif" alt="Ice Cream">
+                    </div>
+                    <!-- Order 6: KWEK KWEK -->
+                    <div class="drag-item" draggable="true" data-match="kwekkwek" id="item-kwekkwek">
+                        <img src="images/kwekwekGIF.webp" alt="Kwek Kwek">
+                    </div>
+                    <!-- Order 7: CHOCOLATE -->
+                    <div class="drag-item" draggable="true" data-match="chocolate" id="item-chocolate">
+                        <img src="images/chocolateGIF.gif" alt="Chocolate">
+                    </div>
+                </div>
+
+                <!-- RIGHT COLUMN: Drop Targets (DIFFERENT ORDER - SHUFFLED) -->
+                <div class="drop-column" id="dropColumn">
+                    <!-- Order 1: DONUT (not aligned with donut image) -->
+                    <div class="drop-target" data-match="donut" id="target-donut">
+                        <span>Donut</span>
+                    </div>
+                    <!-- Order 2: FRIES -->
+                    <div class="drop-target" data-match="fries" id="target-fries">
+                        <span>Fries</span>
+                    </div>
+                    <!-- Order 3: CAT (not aligned with cat image) -->
+                    <div class="drop-target" data-match="cat" id="target-cat">
+                        <span>Cat</span>
+                    </div>
+                    <!-- Order 4: KWEK KWEK -->
+                    <div class="drop-target" data-match="kwekkwek" id="target-kwekkwek">
+                        <span>Kwek Kwek</span>
+                    </div>
+                    <!-- Order 5: FLOWER -->
+                    <div class="drop-target" data-match="flower" id="target-flower">
+                        <span>Flower</span>
+                    </div>
+                    <!-- Order 6: CHOCOLATE -->
+                    <div class="drop-target" data-match="chocolate" id="target-chocolate">
+                        <span>Chocolate</span>
+                    </div>
+                    <!-- Order 7: ICE CREAM -->
+                    <div class="drop-target" data-match="icecream" id="target-icecream">
+                        <span>Ice Cream</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Next button (hidden until all matches are correct) -->
+            <button class="btn-primary" id="nextBtn" style="display: none;">Next</button>
+        </div>
+    </div>
+
+    <!-- SCREEN 3: VALENTINE QUESTION -->
+    <div id="screen3" class="screen">
+        <div class="container">
+            <div class="image-holder square">
+                <img src="images/cat-kitten.gif" alt="Valentine Image" id="questionImage">
+            </div>
+            
+            <h2 class="question-text">Will you be my Valentine, My Dear?</h2>
+            
+            <div class="button-container">
+                <button class="btn-yes" id="yesBtn">YES</button>
+                <button class="btn-no" id="noBtn">NO</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCREEN 4: SWEET MESSAGE -->
+    <div id="screen4" class="screen">
+        <div class="container">
+            <div class="image-holder square">
+                <img src="images/blackcatGIF.gif" alt="Valentine Image" id="questionImage">
+            </div>
+            <div class="message-box">
+                <p class="sweet-message">
+                    Thank you for saying yeSss. It would make the day completed. 
+                    I assure you that it will make you relax, chill, happy, and leave you good memories.
+                    Let's g, gala usssss.
+                    I'm excited to spend this Valentine's Day with you, My Dear. Ily!
+                </p>
+            </div>
+            
+            <button class="btn-primary" id="finishBtn">Okay, mwa 💕</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
